@@ -7,9 +7,8 @@
     <?php
         $sql = "SELECT * FROM post ORDER BY id DESC";
         $result = $conn->query($sql);
-        
+        $total = 0;
         if ($result->num_rows > 0) {
-                $total = 0;
                 // Output data of each post
                 while($row = $result->fetch_assoc()) {
                     $total+=1;

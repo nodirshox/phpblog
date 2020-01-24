@@ -1,8 +1,10 @@
 <?php
     require 'include/header.php';
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $title =  $_POST['title'];
-        $body = $_POST['body'];
+        $title = mysqli_real_escape_string($conn, $_POST['title']);
+        $title = str_replace('"', "'", $title);
+        $body = mysqli_real_escape_string($conn, $_POST['body']);
+        $body = str_replace('"', "'", $body); 
         //SQL
         $sql = "INSERT INTO post (title, body) VALUES ('$title', '$body')";
         //Insert
