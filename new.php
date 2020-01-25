@@ -26,7 +26,8 @@
             </div>
             <div>
                 <label>Body</label><br />
-                <input type="text" name="body" id ="body" placeholder="Write Funny Post :)" autocomplete="off" required>        </div>
+                <input type="text" name="body" id ="body" placeholder="Write Funny Post :)" autocomplete="off" onkeydown="return event.key != 'Enter';" required>
+            </div>
             <input type="submit" value="SUBMIT">
         </form>
 <?php
