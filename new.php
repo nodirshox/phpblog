@@ -21,7 +21,7 @@
         <hr>
         <form action="new.php" method="POST">
             <div>
-                <label>Title</title><br />
+                <label>Title</label><br />
                 <input type="text" name="title" id ="title" placeholder="Amazing Title" autocomplete="off" required>
             </div>
             <div>

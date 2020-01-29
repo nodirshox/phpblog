@@ -27,7 +27,7 @@
         <form action="edit.php" method="POST">
             <div>
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>" >
-                <label>Title</title><br />
+                <label>Title</label><br />
                 <input type="text" name="title" id ="title" placeholder="Amazing Title" autocomplete="off" value="<?php echo str_replace("\\", "", $title); ?>" required>
             </div>
             <div>

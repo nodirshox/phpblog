@@ -25,7 +25,6 @@
         //Insert
         if (mysqli_query($conn, $sql)) {
             echo "Commented. <a href='post.php?id={$post_id}'> View the post</a>";
-            header('Refresh: 5; URL=post.php?id=<?php $post_id; ?>');
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -39,7 +38,8 @@
     <b>Title:</b><br />
     <?php echo $row["title"]; ?> <br />
     <b>Body:</b><br />
-    <?php echo $row['body']; ?>
+    <?php echo $row['body']; ?><br />
+    <u><a href="edit.php?id=<?= $row['id']; ?>">Edit</a></u> | <u><a href="delete.php?id=<?= $row['id']; ?>">Delete</a></u>
     <hr>
     <b>Comments:</b><br />
     <?php

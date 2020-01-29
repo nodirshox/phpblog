@@ -18,7 +18,7 @@
         $total_rows = mysqli_fetch_array($result)[0];
         $total_pages = ceil($total_rows / $no_of_records_per_page);
 
-        $sql = "SELECT * FROM post LIMIT $offset, $no_of_records_per_page";
+        $sql = "SELECT * FROM post ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
         $result = $conn->query($sql);
         $total = 0;
         if ($result->num_rows > 0) {
@@ -29,7 +29,7 @@
                     $timeStamp = date( "m/d/Y", strtotime($timeStamp));
                     ?>
                     <h4><b><a href="pages/post.php?id=<?= $row['id']; ?>"><?= $row["title"]; ?></a></b> on <small><?= $timeStamp; ?></small></h4>
-                    <p><?= $row["body"]; ?> <u><a href="pages/edit.php?id=<?= $row['id']; ?>">Edit</a></u> | <u><a href="pages/delete.php?id=<?= $row['id']; ?>">Delete</a></u></p>
+                    <p><?= $row["body"]; ?> </p>
                     <hr>
                 <?php
                 }
@@ -46,7 +46,7 @@
             <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
         </li>
     </ul><br />
-    Total posts: <?php echo $total; ?><br>
+    Total posts: <?php echo $total_rows; ?><br>
     <a href="new.php">Write a post</a>
 <?php
     require 'include/footer.php';

@@ -1,6 +1,6 @@
 <?php
     include_once 'db.php';
-    $home = "http://localhost/myblog";
+    $home = "http://localhost/phpblog";
 ?>
 <!DOCTYPE html>
 <html>
