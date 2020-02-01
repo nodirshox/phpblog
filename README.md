@@ -1,4 +1,3 @@
-# phpblog
 # First Blog using PHP from scratch.
 
 ## Live: 
