@@ -9,7 +9,8 @@
         $sql = "INSERT INTO post (title, body) VALUES ('$title', '$body')";
         //Insert
         if (mysqli_query($conn, $sql)) {
-            echo "Posted. <a href='index.php'>View all posts.</a>";
+            header( "Location: index.php" );
+            exit;
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -17,19 +18,36 @@
     }
     //Show the form only method GET
     if ($_SERVER['REQUEST_METHOD'] === 'GET') { ?>
-        <h2>Write a new post</h2>
-        <hr>
-        <form action="new.php" method="POST">
-            <div>
-                <label>Title</label><br />
-                <input type="text" name="title" id ="title" placeholder="Amazing Title" autocomplete="off" required>
+        <div class="container content">
+            <div class="row">
+                <div class="col">
+                    <span class="heading-text">Write a post!</span>
+                </div>
             </div>
-            <div>
-                <label>Body</label><br />
-                <input type="text" name="body" id ="body" placeholder="Write Funny Post :)" autocomplete="off" onkeydown="return event.key != 'Enter';" required>
-            </div>
-            <input type="submit" value="SUBMIT">
-        </form>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="container">
+                        <form action="new.php" method="POST">
+                            <div class="row">
+                                <input type="text" name="title" id="title" placeholder="Title" class="text-input" autocomplete="off" required>
+                            </div>
+                            <div class="row">
+                                <textarea name="body" id="body" cols="40" rows="5" class="text-input" placeholder="Body" autocomplete="off"></textarea>
+                            </div>
+                            <div class="row">
+                                <input type="submit" value="POST" id="submit-form">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <?php include 'include/statistics.php'; ?>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div><span class="home"><a href="index.php">Home</a></span></div>
+                    </div>
+                </div>
+        </div>
 <?php
     }
     require 'include/footer.php';
